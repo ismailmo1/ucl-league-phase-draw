@@ -13,3 +13,4 @@ The following rules determine which opponents are compatible:
 >To determine the eight different opponents, teams will be seeded in four pots ... Each team will then be drawn against two opponents from each pot, one of which will be at home and one away.
 >In the league phase teams cannot face opponents from their country and can be drawn against a maximum of two sides from the same country.<sup>[[1]](https://www.uefa.com/news-media/news/028f-1b7f80216368-4c26e95cc15b-1000/)</sup>
 
+pots taken from: https://www.uefa.com/uefachampionsleague/news/0290-1bb8f464468e-3d7a47f2094d-1000--champions-league-league-phase-draw-pots-confirmed/

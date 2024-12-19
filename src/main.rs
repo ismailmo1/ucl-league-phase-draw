@@ -1,275 +1,85 @@
-use rand::seq::SliceRandom;
-use rand::thread_rng;
+mod teams;
 
+use rand::{seq::SliceRandom, thread_rng};
+use std::{collections::HashSet, vec};
+use teams::{get_teams, Fixture, Pot, Team};
 fn main() {
-    let teams = [
-        Team {
-            name: String::from("Liverpool"),
-            league: League::ENG,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Barcelona"),
-            league: League::ESP,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Arsenal"),
-            league: League::ENG,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Bayer Leverkusen"),
-            league: League::GER,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Aston Villa"),
-            league: League::ENG,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Inter Milan"),
-            league: League::ITA,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Brest"),
-            league: League::FRA,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Lille"),
-            league: League::FRA,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Borussia Dortmund"),
-            league: League::FRA,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Bayern Munich"),
-            league: League::GER,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Atlético Madrid"),
-            league: League::ESP,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("AC Milan"),
-            league: League::ITA,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Atalanta"),
-            league: League::ITA,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Juventus"),
-            league: League::ITA,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Benfica"),
-            league: League::POR,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Monaco"),
-            league: League::FRA,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Sporting CP"),
-            league: League::POR,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Feyenoord"),
-            league: League::NED,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Club Brugge"),
-            league: League::POR,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Real Madrid"),
-            league: League::ESP,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Celtic"),
-            league: League::SCO,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Manchester City"),
-            league: League::ENG,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("PSV"),
-            league: League::NED,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Dinamo Zagreb"),
-            league: League::CRO,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("PSG"),
-            league: League::FRA,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Stuttgart"),
-            league: League::GER,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Shakhtar Donetsk"),
-            league: League::UKR,
-            pot: Pot::Two,
-        },
-        Team {
-            name: String::from("Sparta Prague"),
-            league: League::CZE,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Sturm Graz"),
-            league: League::AUT,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Girona"),
-            league: League::ESP,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Red Star Belgrade"),
-            league: League::SRB,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Red Bull Salzburg"),
-            league: League::AUT,
-            pot: Pot::Three,
-        },
-        Team {
-            name: String::from("Bologna"),
-            league: League::ITA,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("RB Leipzig"),
-            league: League::GER,
-            pot: Pot::One,
-        },
-        Team {
-            name: String::from("Slovan Bratislava"),
-            league: League::SVK,
-            pot: Pot::Four,
-        },
-        Team {
-            name: String::from("Young Boy"),
-            league: League::SUI,
-            pot: Pot::Three,
-        },
-    ];
+    let teams = get_teams();
+    let mut fixtures: Vec<Fixture> = vec![];
+    let curr_team = teams.choose(&mut thread_rng()).expect("no teams to choose from");
+    // draw two teams from each pot
 
-    let mut rng = thread_rng();
-    let random_team = teams.choose(&mut rng).expect("no teams to choose from");
-    let possible_draws: Vec<&Team> = teams
-        .iter()
-        .filter(|team| random_team.can_draw(team))
-        .collect();
-    let possible_draw_names: Vec<&String> = possible_draws.iter().map(|t| &t.name).collect();
-    println!("{:?} chosen", &random_team.name);
-    println!("possible draws: {:?}", possible_draw_names);
+    // group teams into pots
+    let pot_1_teams = filter_teams_by_pot(&teams, Pot::One);
+    let pot_2_teams = filter_teams_by_pot(&teams, Pot::Two);
+    let pot_3_teams = filter_teams_by_pot(&teams, Pot::Three);
+    let pot_4_teams = filter_teams_by_pot(&teams, Pot::Four);
+
+    println!("{} chosen", &curr_team.name);
+    let pot1_home_fixture = generate_fixture_for_team(&curr_team, &pot_1_teams);
+    let pot1_away_fixture = generate_fixture_for_team(&curr_team, &pot_1_teams);
+    println!("Pot 1:");
+    println!("{}", &pot1_home_fixture);
+    println!("{}", &pot1_away_fixture);
+    fixtures.push(pot1_home_fixture);
+    fixtures.push(pot1_away_fixture);
+
+    let pot2_home_fixture = generate_fixture_for_team(&curr_team, &pot_2_teams);
+    let pot2_away_fixture = generate_fixture_for_team(&curr_team, &pot_2_teams);
+    println!("Pot 2:");
+    println!("{}", &pot2_home_fixture);
+    println!("{}", &pot2_away_fixture);
+    fixtures.push(pot2_home_fixture);
+    fixtures.push(pot2_away_fixture);
+
+    let pot3_home_fixture = generate_fixture_for_team(&curr_team, &pot_3_teams);
+    let pot3_away_fixture = generate_fixture_for_team(&curr_team, &pot_3_teams);
+    println!("Pot 3:");
+    println!("{}", &pot3_home_fixture);
+    println!("{}", &pot3_away_fixture);
+    fixtures.push(pot3_home_fixture);
+    fixtures.push(pot3_away_fixture);
+
+    let pot4_home_fixture = generate_fixture_for_team(&curr_team, &pot_4_teams);
+    let pot4_away_fixture = generate_fixture_for_team(&curr_team, &pot_4_teams);
+    println!("Pot 4:");
+    println!("{}", &pot4_home_fixture);
+    println!("{}", &pot4_away_fixture);
+    fixtures.push(pot4_home_fixture);
+    fixtures.push(pot4_away_fixture);
 }
 
-#[derive(Debug, PartialEq)]
-enum League {
-    ENG,
-    ESP,
-    ITA,
-    GER,
-    FRA,
-    NED,
-    POR,
-    CZE,
-    CRO,
-    SRB,
-    SCO,
-    UKR,
-    AUT,
-    SUI,
-    SVK,
+fn filter_teams_by_pot(teams: &[Team], pot: Pot) -> Vec<&Team> {
+    teams.iter().filter(|team| team.pot == pot).collect()
 }
 
-#[derive(Debug, PartialEq)]
-enum Pot {
-    One,
-    Two,
-    Three,
-    Four,
-}
-#[derive(Debug)]
-struct Team {
-    pub name: String,
-    pub league: League,
-    pub pot: Pot,
+fn get_incompatible_teams<'a>(team:&'a Team, fixtures: Vec<&'a Fixture>) ->Vec<&'a Fixture<'a>>{
+    // remove current team (cant play yourself)
+    let mut incompat_teams= vec![team];
+
+    // remove teams with a fixture already (can't play same team twice) 
+    let fixtures_for_curr_team = fixtures.iter().filter(|f| f.away == team || f.home == team);
+    let teams_w_home_fixtures: Vec<&Team> = fixtures_for_curr_team.clone().map(|f| f.away).collect();
+    let teams_w_away_fixtures: Vec<&Team> = fixtures_for_curr_team.clone().map(|f| f.home).collect();
+    let all_existing_fixtures = [teams_w_away_fixtures, teams_w_home_fixtures].concat();
+    let existing_fixture_teams: HashSet<&&Team> =all_existing_fixtures.iter().collect();
+    incompat_teams.extend(existing_fixture_teams);
+    fixtures
 }
 
-impl Team {
-    fn can_draw(&self, other: &Team) -> bool {
-        if &self.league == &other.league {
-            return false;
-        } else {
-            return true;
-        }
-    }
-}
+fn generate_fixture_for_team<'a>(
+    team: &'a Team,
+    compatible_teams: &'a [&Team],
+) -> Fixture<'a> {
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn same_league_cant_draw() {
-        let team1 = Team {
-            name: String::from("team1"),
-            league: League::AUT,
-            pot: Pot::One,
-        };
-        let team2 = Team {
-            name: String::from("team2"),
-            league: League::AUT,
-            pot: Pot::Two,
-        };
-        let can_draw = team1.can_draw(&team2);
-        assert_eq!(can_draw, false);
-    }
-    #[test]
-    fn different_league_can_draw() {
-        let team1 = Team {
-            name: String::from("team1"),
-            league: League::AUT,
-            pot: Pot::One,
-        };
-        let team2 = Team {
-            name: String::from("team2"),
-            league: League::ENG,
-            pot: Pot::One,
-        };
-        let can_draw = team1.can_draw(&team2);
-        assert_eq!(can_draw, true);
-    }
+    // remove 
+    let draw = compatible_teams
+        .choose(&mut thread_rng())
+        .expect("no teams available to draw from");
+
+    let fixture = Fixture {
+        home: &draw,
+        away: &team,
+    };
+    return fixture;
 }

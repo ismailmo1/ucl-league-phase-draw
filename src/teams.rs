@@ -60,14 +60,14 @@ impl fmt::Display for Team {
         write!(f, "{}", self.name)
     }
 }
-impl PartialEq for Team{
+impl PartialEq for Team {
     fn eq(&self, other: &Self) -> bool {
         self.name.eq(&other.name)
     }
 }
 
-impl Eq for Team{}
-impl Hash for Team{
+impl Eq for Team {}
+impl Hash for Team {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.name.hash(state);
     }

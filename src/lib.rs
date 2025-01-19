@@ -1,4 +1,4 @@
-use std::{fmt, hash::Hash};
+use std::{collections::HashSet, fmt, hash::Hash};
 
 use rand::{seq::SliceRandom, thread_rng};
 
@@ -29,7 +29,7 @@ pub enum Pot {
     Four,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Fixture {
     pub home: Team,
     pub away: Team,
@@ -45,7 +45,7 @@ pub struct Team {
     pub name: String,
     pub league: League,
     pub pot: Pot,
-    fixtures: Option<Vec<Fixture>>,
+    fixtures: Option<HashSet<Fixture>>,
 }
 
 impl Team {
@@ -90,10 +90,18 @@ impl Team {
         compat_teams
     }
 
-    pub fn draw_opponent(&self, compatible_teams: &Vec<Team>, home: bool) -> Fixture {
-        let opponent = compatible_teams
+    pub fn draw_opponent(
+        &self,
+        team_to_draw_from: &Vec<Team>,
+        curr_fixtures: &HashSet<Fixture>,
+        home: bool,
+    ) -> Fixture {
+        let opponent = team_to_draw_from
             .choose(&mut thread_rng())
             .expect("no teams available to draw from");
+        if !self.is_opponent_is_valid(opponent, curr_fixtures) {
+            panic!("opponent is not valid")
+        };
         if home {
             Fixture {
                 home: self.clone(),
@@ -104,6 +112,13 @@ impl Team {
                 away: self.clone(),
                 home: opponent.clone(),
             }
+        }
+    }
+    fn is_opponent_is_valid(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
+        if opponent == self {
+            false
+        } else {
+            true
         }
     }
 }
@@ -177,6 +192,7 @@ pub fn get_teams() -> Vec<Team> {
 
 #[cfg(test)]
 mod tests {
+
     use super::*;
     #[test]
     fn same_league_cant_draw() {
@@ -191,5 +207,34 @@ mod tests {
         let team2 = Team::new("team2", League::ENG, Pot::One);
         let can_draw = team1.can_draw(&team2);
         assert_eq!(can_draw, true);
+    }
+    #[test]
+    fn same_fixture_equals() {
+        let team1 = Team::new("team1", League::AUT, Pot::One);
+        let team2 = Team::new("team1", League::AUT, Pot::One);
+        let fix1 = Fixture {
+            home: team1.clone(),
+            away: team2.clone(),
+        };
+        let fix2 = Fixture {
+            home: team1.clone(),
+            away: team2.clone(),
+        };
+        assert_eq!(fix1, fix2)
+    }
+    #[test]
+    #[should_panic]
+    fn draw_opponent_fails_against_same_teams() {
+        let team1 = Team::new("team1", League::AUT, Pot::One);
+        let teams = &vec![team1.clone()];
+        let curr_fix = HashSet::new();
+        let fix = team1.draw_opponent(teams, &curr_fix, true);
+        assert_eq!(
+            fix,
+            Fixture {
+                home: team1.clone(),
+                away: team1.clone()
+            }
+        )
     }
 }

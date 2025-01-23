@@ -45,7 +45,6 @@ pub struct Team {
     pub name: String,
     pub league: League,
     pub pot: Pot,
-    fixtures: Option<HashSet<Fixture>>,
 }
 
 impl Team {
@@ -54,7 +53,6 @@ impl Team {
             name: String::from(name),
             league,
             pot,
-            fixtures: None,
         }
     }
     pub fn can_draw(&self, other: &Team) -> bool {
@@ -92,14 +90,16 @@ impl Team {
 
     pub fn draw_opponent(
         &self,
-        team_to_draw_from: &Vec<Team>,
+        teams_to_draw_from: &Vec<Team>,
         curr_fixtures: &HashSet<Fixture>,
         home: bool,
     ) -> Fixture {
-        let opponent = team_to_draw_from
+        let opponent = teams_to_draw_from
             .choose(&mut thread_rng())
             .expect("no teams available to draw from");
         if !self.is_opponent_is_valid(opponent, curr_fixtures) {
+            // TODO: keep choosing another opponent until a valid one is found
+            // need to remove invalid teams from teams_to_draw from so we dont keep drawing them
             panic!("opponent is not valid")
         };
         if home {
@@ -120,6 +120,8 @@ impl Team {
         } else {
             true
         }
+        // TODO: return false is curr fix already has a fixture between self and opponent
+        // TODO: return false is curr fix already has a fixture with two teams from the same country
     }
 }
 
@@ -225,6 +227,7 @@ mod tests {
     #[test]
     #[should_panic]
     fn draw_opponent_fails_against_same_teams() {
+        // you cant draw a team against themselves
         let team1 = Team::new("team1", League::AUT, Pot::One);
         let teams = &vec![team1.clone()];
         let curr_fix = HashSet::new();
@@ -236,5 +239,41 @@ mod tests {
                 away: team1.clone()
             }
         )
+    }
+    #[test]
+    #[should_panic]
+    fn opponent_is_not_valid_if_already_drawn() {
+        // you cant draw a team that already has a fixture
+        let team1 = Team::new("team1", League::AUT, Pot::One);
+        let team2 = Team::new("team2", League::CRO, Pot::Two);
+        let mut curr_fix = HashSet::new();
+        curr_fix.insert(Fixture {
+            home: team1.clone(),
+            away: team2.clone(),
+        });
+        let is_valid = team1.is_opponent_is_valid(&team2, &curr_fix);
+        todo!("make is valid false");
+    }
+
+    #[test]
+    #[should_panic]
+    fn opponent_is_not_valid_if_max_country_allocation_full() {
+        // you cant draw a team that already has fixtures with two teams from that country
+        let team1 = Team::new("team1", League::ENG, Pot::One);
+        let team2 = Team::new("team2", League::ENG, Pot::Two);
+        let team3 = Team::new("team3", League::ENG, Pot::Three);
+        let team4 = Team::new("team4", League::ENG, Pot::Four);
+        let teams = &vec![team2.clone()];
+        let mut curr_fix = HashSet::new();
+        curr_fix.insert(Fixture {
+            home: team1.clone(),
+            away: team2.clone(),
+        });
+        curr_fix.insert(Fixture {
+            home: team1.clone(),
+            away: team3.clone(),
+        });
+        let is_valid = team1.is_opponent_is_valid(&team3, &curr_fix);
+        todo!("make is valid false");
     }
 }

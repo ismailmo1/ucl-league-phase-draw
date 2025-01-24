@@ -97,7 +97,7 @@ impl Team {
         let opponent = teams_to_draw_from
             .choose(&mut thread_rng())
             .expect("no teams available to draw from");
-        if !self.is_opponent_is_valid(opponent, curr_fixtures) {
+        if !self.is_opponent_valid(opponent, curr_fixtures) {
             // TODO: keep choosing another opponent until a valid one is found
             // need to remove invalid teams from teams_to_draw from so we dont keep drawing them
             panic!("opponent is not valid")
@@ -114,13 +114,18 @@ impl Team {
             }
         }
     }
-    fn is_opponent_is_valid(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
+    fn is_opponent_valid(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
         if opponent == self {
-            false
-        } else {
-            true
+            return false;
         }
-        // TODO: return false is curr fix already has a fixture between self and opponent
+        // return false if curr fix already has a fixture between self and opponent (home or away)
+        !(curr_fixtures.contains(&Fixture {
+            home: opponent.clone(),
+            away: self.clone(),
+        }) || curr_fixtures.contains(&Fixture {
+            home: self.clone(),
+            away: opponent.clone(),
+        }))
         // TODO: return false is curr fix already has a fixture with two teams from the same country
     }
 }
@@ -224,26 +229,19 @@ mod tests {
         };
         assert_eq!(fix1, fix2)
     }
+
     #[test]
-    #[should_panic]
-    fn draw_opponent_fails_against_same_teams() {
+    fn opponent_is_not_valid_against_same_team() {
         // you cant draw a team against themselves
         let team1 = Team::new("team1", League::AUT, Pot::One);
-        let teams = &vec![team1.clone()];
+        let team1_copy = team1.clone();
         let curr_fix = HashSet::new();
-        let fix = team1.draw_opponent(teams, &curr_fix, true);
-        assert_eq!(
-            fix,
-            Fixture {
-                home: team1.clone(),
-                away: team1.clone()
-            }
-        )
+        let is_valid = team1.is_opponent_valid(&team1_copy, &curr_fix);
+        assert_eq!(is_valid, false)
     }
     #[test]
-    #[should_panic]
-    fn opponent_is_not_valid_if_already_drawn() {
-        // you cant draw a team that already has a fixture
+    fn opponent_is_valid_empty_fixtures() {
+        // you cant draw a team that already has a home fixture
         let team1 = Team::new("team1", League::AUT, Pot::One);
         let team2 = Team::new("team2", League::CRO, Pot::Two);
         let mut curr_fix = HashSet::new();
@@ -251,8 +249,34 @@ mod tests {
             home: team1.clone(),
             away: team2.clone(),
         });
-        let is_valid = team1.is_opponent_is_valid(&team2, &curr_fix);
-        todo!("make is valid false");
+        let is_valid = team1.is_opponent_valid(&team2, &curr_fix);
+        assert_eq!(is_valid, false)
+    }
+    #[test]
+    fn opponent_is_not_valid_if_already_drawn_home() {
+        // you cant draw a team that already has a home fixture
+        let team1 = Team::new("team1", League::AUT, Pot::One);
+        let team2 = Team::new("team2", League::CRO, Pot::Two);
+        let mut curr_fix = HashSet::new();
+        curr_fix.insert(Fixture {
+            home: team1.clone(),
+            away: team2.clone(),
+        });
+        let is_valid = team1.is_opponent_valid(&team2, &curr_fix);
+        assert_eq!(is_valid, false)
+    }
+    #[test]
+    fn opponent_is_not_valid_if_already_drawn_away() {
+        // you cant draw a team that already has a away fixture
+        let team1 = Team::new("team1", League::AUT, Pot::One);
+        let team2 = Team::new("team2", League::CRO, Pot::Two);
+        let mut curr_fix = HashSet::new();
+        curr_fix.insert(Fixture {
+            home: team2.clone(),
+            away: team1.clone(),
+        });
+        let is_valid = team1.is_opponent_valid(&team2, &curr_fix);
+        assert_eq!(is_valid, false)
     }
 
     #[test]
@@ -273,7 +297,7 @@ mod tests {
             home: team1.clone(),
             away: team3.clone(),
         });
-        let is_valid = team1.is_opponent_is_valid(&team3, &curr_fix);
+        let is_valid = team1.is_opponent_valid(&team3, &curr_fix);
         todo!("make is valid false");
     }
 }

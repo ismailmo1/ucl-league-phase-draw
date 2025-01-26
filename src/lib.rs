@@ -32,6 +32,16 @@ pub enum Pot {
     Three,
     Four,
 }
+impl fmt::Display for Pot {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Pot::One => write!(f, "{}", 1),
+            Pot::Two => write!(f, "{}", 2),
+            Pot::Three => write!(f, "{}", 3),
+            Pot::Four => write!(f, "{}", 4),
+        }
+    }
+}
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Fixture {
@@ -97,20 +107,29 @@ impl Team {
         compat_teams
     }
 
+    fn draw_random_team<'a>(&self, teams_to_draw_from: &'a Vec<Team>) -> &'a Team {
+        teams_to_draw_from
+            .choose(&mut thread_rng())
+            .expect("no teams available to draw from")
+    }
+
     pub fn draw_opponent(
         &self,
         teams_to_draw_from: &Vec<Team>,
         curr_fixtures: &HashSet<Fixture>,
         home: bool,
     ) -> Fixture {
-        let opponent = teams_to_draw_from
-            .choose(&mut thread_rng())
-            .expect("no teams available to draw from");
-        if !self.is_opponent_valid(opponent, curr_fixtures) {
-            // TODO: keep choosing another opponent until a valid one is found
-            // need to remove invalid teams from teams_to_draw from so we dont keep drawing them
-            panic!("opponent is not valid")
-        };
+        let valid_teams_to_draw: Vec<Team> = teams_to_draw_from
+            .iter()
+            .filter(|t| self.is_opponent_valid(t, home, curr_fixtures))
+            .cloned()
+            .collect();
+        println!("valid teams for {}", self);
+        for t in &valid_teams_to_draw {
+            println!("{}", t);
+        }
+        // need to remove invalid teams from teams_to_draw from so we dont keep drawing them
+        let opponent = self.draw_random_team(&valid_teams_to_draw);
         if home {
             Fixture {
                 home: self.clone(),
@@ -123,7 +142,12 @@ impl Team {
             }
         }
     }
-    fn is_opponent_valid(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
+    fn is_opponent_valid(
+        &self,
+        opponent: &Team,
+        home: bool,
+        curr_fixtures: &HashSet<Fixture>,
+    ) -> bool {
         // cannot play yourself
         if opponent == self {
             // congratulations, you played yourself
@@ -137,9 +161,31 @@ impl Team {
         if self.has_fixture(opponent, curr_fixtures) {
             return false;
         }
+        // cannot play opponents who already have an equivalent fixture with a team from that pot
+        // equivalent fix = same pot & same home/away
+        for fix in curr_fixtures {
+            // if were checking if the opponent is valid for a home fixtures, this will be an away fixture for the opponent
+            // so we need to check the opponents current away fixtures
+            if home {
+                if &fix.away == opponent && fix.home.pot == self.pot {
+                    println!(
+                        "invalid {} for home={} due to fixture: {} for pot {}",
+                        opponent, home, fix, self.pot
+                    );
+                    return false;
+                }
+            } else if &fix.home == opponent && fix.away.pot == self.pot {
+                // this is an away fixture for self, so we need to check opponents home fixtures
+                println!(
+                    "invalid {} for home={} due to fixture: {} for pot {}",
+                    opponent, home, fix, self.pot
+                );
+                return false;
+            }
+        }
         // cannot play more than two teams from the same league
-        let league_counts = self.get_league_counts(curr_fixtures);
-        if league_counts[&opponent.league] > 1 {
+        let mut league_counts = self.get_league_counts(curr_fixtures);
+        if *league_counts.entry(&opponent.league).or_insert(0) > 1 {
             return false;
         }
         true
@@ -284,7 +330,7 @@ mod tests {
         let team1 = Team::new("team1", League::AUT, Pot::One);
         let team1_copy = team1.clone();
         let curr_fix = HashSet::new();
-        let is_valid = team1.is_opponent_valid(&team1_copy, &curr_fix);
+        let is_valid = team1.is_opponent_valid(&team1_copy, true, &curr_fix);
         assert_eq!(is_valid, false)
     }
     #[test]
@@ -297,7 +343,7 @@ mod tests {
             home: team1.clone(),
             away: team2.clone(),
         });
-        let is_valid = team1.is_opponent_valid(&team2, &curr_fix);
+        let is_valid = team1.is_opponent_valid(&team2, true, &curr_fix);
         assert_eq!(is_valid, false)
     }
     #[test]
@@ -310,7 +356,7 @@ mod tests {
             home: team1.clone(),
             away: team2.clone(),
         });
-        let is_valid = team1.is_opponent_valid(&team2, &curr_fix);
+        let is_valid = team1.is_opponent_valid(&team2, true, &curr_fix);
         assert_eq!(is_valid, false)
     }
     #[test]
@@ -323,7 +369,7 @@ mod tests {
             home: team2.clone(),
             away: team1.clone(),
         });
-        let is_valid = team1.is_opponent_valid(&team2, &curr_fix);
+        let is_valid = team1.is_opponent_valid(&team2, true, &curr_fix);
         assert_eq!(is_valid, false)
     }
 
@@ -343,7 +389,7 @@ mod tests {
             home: team1.clone(),
             away: team3.clone(),
         });
-        let is_valid = team1.is_opponent_valid(&team4, &curr_fix);
+        let is_valid = team1.is_opponent_valid(&team4, true, &curr_fix);
         assert_eq!(is_valid, false)
     }
     #[test]
@@ -352,7 +398,39 @@ mod tests {
         let team1 = Team::new("team1", League::ENG, Pot::One);
         let team2 = Team::new("team2", League::ENG, Pot::Two);
 
-        let is_valid = team1.is_opponent_valid(&team2, &HashSet::new());
+        let is_valid = team1.is_opponent_valid(&team2, true, &HashSet::new());
+        assert_eq!(is_valid, false)
+    }
+    #[test]
+    fn opponent_is_not_valid_if_already_drawn_pot_home() {
+        // you cant draw a team away from home if that team already has a home fixture with a team from that pot
+        let team1 = Team::new("team1", League::ENG, Pot::One);
+        let team2 = Team::new("team2", League::ESP, Pot::Two);
+        let team3 = Team::new("team3", League::GER, Pot::Two);
+        let mut curr_fix = HashSet::new();
+        // team 1 has a home fixture against a pot two team
+        curr_fix.insert(Fixture {
+            home: team1.clone(),
+            away: team2.clone(),
+        });
+        // we cant draw team 1 away from home, since that would be another home fixture for team 1 against a pot two team
+        let is_valid = team3.is_opponent_valid(&team1, false, &curr_fix);
+        assert_eq!(is_valid, false)
+    }
+    #[test]
+    fn opponent_is_not_valid_if_already_drawn_pot_away() {
+        // you cant draw a team at home if that team already has an away fixture with a team from that pot
+        let team1 = Team::new("team1", League::ENG, Pot::One);
+        let team2 = Team::new("team2", League::ESP, Pot::Two);
+        let team3 = Team::new("team3", League::GER, Pot::Two);
+        let mut curr_fix = HashSet::new();
+        // team 1 has an away fixture with a pot two teams
+        curr_fix.insert(Fixture {
+            home: team2.clone(),
+            away: team1.clone(),
+        });
+        // we cant draw team 1 at home, since that would be another away fixture for team 1 against a pot two team
+        let is_valid = team3.is_opponent_valid(&team3, true, &curr_fix);
         assert_eq!(is_valid, false)
     }
 }

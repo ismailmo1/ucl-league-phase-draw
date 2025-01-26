@@ -1,8 +1,12 @@
-use std::{collections::HashSet, fmt, hash::Hash};
+use std::{
+    collections::{HashMap, HashSet},
+    fmt,
+    hash::Hash,
+};
 
 use rand::{seq::SliceRandom, thread_rng};
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Clone, Eq, Hash)]
 pub enum League {
     ENG,
     ESP,
@@ -35,6 +39,11 @@ pub struct Fixture {
     pub away: Team,
 }
 
+impl Fixture {
+    pub fn has_team(&self, team: &Team) -> bool {
+        (&self.home == team) || (&self.away == team)
+    }
+}
 impl fmt::Display for Fixture {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{}(H) v {}(A)", self.home, self.away)
@@ -119,14 +128,41 @@ impl Team {
             return false;
         }
         // return false if curr fix already has a fixture between self and opponent (home or away)
-        !(curr_fixtures.contains(&Fixture {
+        if self.fixture_exists(opponent, curr_fixtures) {
+            return false;
+        }
+        // return false if curr fix already has a fixture with two teams from the same country
+        // group curr_fixtures by country
+        let mut country_counts = HashMap::new();
+        for fix in curr_fixtures {
+            if fix.has_team(self) {
+                let opp;
+                if &fix.home == self {
+                    opp = &fix.away;
+                } else {
+                    opp = &fix.home;
+                }
+                country_counts
+                    .entry(&opp.league)
+                    .and_modify(|c| *c += 1)
+                    .or_insert(1);
+            }
+        }
+        // get opponent country count
+        if country_counts[&opponent.league] > 1 {
+            return false;
+        }
+        true
+    }
+
+    fn fixture_exists(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
+        curr_fixtures.contains(&Fixture {
             home: opponent.clone(),
             away: self.clone(),
         }) || curr_fixtures.contains(&Fixture {
             home: self.clone(),
             away: opponent.clone(),
-        }))
-        // TODO: return false is curr fix already has a fixture with two teams from the same country
+        })
     }
 }
 
@@ -280,14 +316,12 @@ mod tests {
     }
 
     #[test]
-    #[should_panic]
     fn opponent_is_not_valid_if_max_country_allocation_full() {
         // you cant draw a team that already has fixtures with two teams from that country
-        let team1 = Team::new("team1", League::ENG, Pot::One);
+        let team1 = Team::new("team1", League::ESP, Pot::One);
         let team2 = Team::new("team2", League::ENG, Pot::Two);
         let team3 = Team::new("team3", League::ENG, Pot::Three);
         let team4 = Team::new("team4", League::ENG, Pot::Four);
-        let teams = &vec![team2.clone()];
         let mut curr_fix = HashSet::new();
         curr_fix.insert(Fixture {
             home: team1.clone(),
@@ -297,7 +331,7 @@ mod tests {
             home: team1.clone(),
             away: team3.clone(),
         });
-        let is_valid = team1.is_opponent_valid(&team3, &curr_fix);
-        todo!("make is valid false");
+        let is_valid = team1.is_opponent_valid(&team4, &curr_fix);
+        assert_eq!(is_valid, false)
     }
 }

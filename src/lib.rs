@@ -124,28 +124,32 @@ impl Team {
         }
     }
     fn is_opponent_valid(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
+        // cannot play yourself
         if opponent == self {
+            // congratulations, you played yourself
             return false;
         }
-        // return false if curr fix already has a fixture between self and opponent (home or away)
-        if self.fixture_exists(opponent, curr_fixtures) {
+        // cannot play team from same league
+        if opponent.league == self.league {
             return false;
         }
-        // return false if curr fix already has a fixture with two teams from the same country
-        // group curr_fixtures by country
-        let country_counts = self.get_country_counts(curr_fixtures);
-        // get opponent country count
-        if country_counts[&opponent.league] > 1 {
+        // cannot play the same team twice
+        if self.has_fixture(opponent, curr_fixtures) {
+            return false;
+        }
+        // cannot play more than two teams from the same league
+        let league_counts = self.get_league_counts(curr_fixtures);
+        if league_counts[&opponent.league] > 1 {
             return false;
         }
         true
     }
 
-    fn get_country_counts<'a>(
+    fn get_league_counts<'a>(
         &self,
         curr_fixtures: &'a HashSet<Fixture>,
     ) -> HashMap<&'a League, i32> {
-        let mut country_counts = HashMap::new();
+        let mut league_counts = HashMap::new();
         for fix in curr_fixtures {
             if fix.has_team(self) {
                 let opp;
@@ -154,16 +158,16 @@ impl Team {
                 } else {
                     opp = &fix.home;
                 }
-                country_counts
+                league_counts
                     .entry(&opp.league)
                     .and_modify(|c| *c += 1)
                     .or_insert(1);
             }
         }
-        country_counts
+        league_counts
     }
 
-    fn fixture_exists(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
+    fn has_fixture(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {
         curr_fixtures.contains(&Fixture {
             home: opponent.clone(),
             away: self.clone(),
@@ -324,8 +328,8 @@ mod tests {
     }
 
     #[test]
-    fn opponent_is_not_valid_if_max_country_allocation_full() {
-        // you cant draw a team that already has fixtures with two teams from that country
+    fn opponent_is_not_valid_if_max_league_allocation_full() {
+        // you cant draw a team that already has fixtures with two teams from that league
         let team1 = Team::new("team1", League::ESP, Pot::One);
         let team2 = Team::new("team2", League::ENG, Pot::Two);
         let team3 = Team::new("team3", League::ENG, Pot::Three);
@@ -340,6 +344,15 @@ mod tests {
             away: team3.clone(),
         });
         let is_valid = team1.is_opponent_valid(&team4, &curr_fix);
+        assert_eq!(is_valid, false)
+    }
+    #[test]
+    fn opponent_is_not_valid_against_same_league() {
+        // you cant draw a team that already has fixtures with two teams from that league
+        let team1 = Team::new("team1", League::ENG, Pot::One);
+        let team2 = Team::new("team2", League::ENG, Pot::Two);
+
+        let is_valid = team1.is_opponent_valid(&team2, &HashSet::new());
         assert_eq!(is_valid, false)
     }
 }

@@ -133,6 +133,18 @@ impl Team {
         }
         // return false if curr fix already has a fixture with two teams from the same country
         // group curr_fixtures by country
+        let country_counts = self.get_country_counts(curr_fixtures);
+        // get opponent country count
+        if country_counts[&opponent.league] > 1 {
+            return false;
+        }
+        true
+    }
+
+    fn get_country_counts<'a>(
+        &self,
+        curr_fixtures: &'a HashSet<Fixture>,
+    ) -> HashMap<&'a League, i32> {
         let mut country_counts = HashMap::new();
         for fix in curr_fixtures {
             if fix.has_team(self) {
@@ -148,11 +160,7 @@ impl Team {
                     .or_insert(1);
             }
         }
-        // get opponent country count
-        if country_counts[&opponent.league] > 1 {
-            return false;
-        }
-        true
+        country_counts
     }
 
     fn fixture_exists(&self, opponent: &Team, curr_fixtures: &HashSet<Fixture>) -> bool {

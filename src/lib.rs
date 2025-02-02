@@ -107,39 +107,59 @@ impl Team {
         compat_teams
     }
 
-    fn draw_random_team<'a>(&self, teams_to_draw_from: &'a Vec<Team>) -> &'a Team {
-        teams_to_draw_from
-            .choose(&mut thread_rng())
-            .expect("no teams available to draw from")
+    fn draw_random_team<'a>(&self, teams_to_draw_from: &'a Vec<Team>) -> Option<&'a Team> {
+        teams_to_draw_from.choose(&mut thread_rng())
     }
 
+    pub fn has_fixture_for_pot(
+        &self,
+        pot: Pot,
+        home: bool,
+        curr_fixtures: &HashSet<Fixture>,
+    ) -> bool {
+        for fix in curr_fixtures {
+            if fix.has_team(self) {
+                if home && &fix.home == self {
+                    if fix.away.pot == pot {
+                        return true;
+                    }
+                } else if !home && &fix.away == self {
+                    if fix.home.pot == pot {
+                        return true;
+                    };
+                }
+            }
+        }
+        false
+    }
     pub fn draw_opponent(
         &self,
         teams_to_draw_from: &Vec<Team>,
         curr_fixtures: &HashSet<Fixture>,
         home: bool,
-    ) -> Fixture {
+    ) -> Result<Fixture, String> {
         let valid_teams_to_draw: Vec<Team> = teams_to_draw_from
             .iter()
             .filter(|t| self.is_opponent_valid(t, home, curr_fixtures))
             .cloned()
             .collect();
-        println!("valid teams for {}", self);
-        for t in &valid_teams_to_draw {
-            println!("{}", t);
-        }
         // need to remove invalid teams from teams_to_draw from so we dont keep drawing them
         let opponent = self.draw_random_team(&valid_teams_to_draw);
-        if home {
-            Fixture {
-                home: self.clone(),
-                away: opponent.clone(),
+        match opponent {
+            Some(opp) => {
+                if home {
+                    Ok(Fixture {
+                        home: self.clone(),
+                        away: opp.clone(),
+                    })
+                } else {
+                    Ok(Fixture {
+                        away: self.clone(),
+                        home: opp.clone(),
+                    })
+                }
             }
-        } else {
-            Fixture {
-                away: self.clone(),
-                home: opponent.clone(),
-            }
+            None => Err("No valid teams to choose from".to_owned()),
         }
     }
     fn is_opponent_valid(
@@ -168,18 +188,10 @@ impl Team {
             // so we need to check the opponents current away fixtures
             if home {
                 if &fix.away == opponent && fix.home.pot == self.pot {
-                    println!(
-                        "invalid {} for home={} due to fixture: {} for pot {}",
-                        opponent, home, fix, self.pot
-                    );
                     return false;
                 }
             } else if &fix.home == opponent && fix.away.pot == self.pot {
                 // this is an away fixture for self, so we need to check opponents home fixtures
-                println!(
-                    "invalid {} for home={} due to fixture: {} for pot {}",
-                    opponent, home, fix, self.pot
-                );
                 return false;
             }
         }
@@ -432,5 +444,29 @@ mod tests {
         // we cant draw team 1 at home, since that would be another away fixture for team 1 against a pot two team
         let is_valid = team3.is_opponent_valid(&team3, true, &curr_fix);
         assert_eq!(is_valid, false)
+    }
+    #[test]
+    fn check_if_team_has_fixture_for_pot() {
+        let team1 = Team::new("team1", League::ENG, Pot::One);
+        let team2 = Team::new("team2", League::ESP, Pot::Two);
+        let mut curr_fix = HashSet::new();
+
+        curr_fix.insert(Fixture {
+            home: team2.clone(),
+            away: team1.clone(),
+        });
+
+        let team1_has_away_fixture_for_pot2 = team1.has_fixture_for_pot(Pot::Two, false, &curr_fix);
+        let team1_has_home_fixture_for_pot2 = team1.has_fixture_for_pot(Pot::Two, true, &curr_fix);
+        let team2_has_home_fixture_for_pot2 = team2.has_fixture_for_pot(Pot::One, true, &curr_fix);
+        let team2_has_away_fixture_for_pot2 = team2.has_fixture_for_pot(Pot::One, false, &curr_fix);
+
+        // team 1 has an away fixture with a pot two team
+        assert_eq!(team1_has_away_fixture_for_pot2, true);
+        assert_eq!(team1_has_home_fixture_for_pot2, false);
+
+        // team 2 has a home fixture with a pot one team
+        assert_eq!(team2_has_home_fixture_for_pot2, true);
+        assert_eq!(team2_has_away_fixture_for_pot2, false);
     }
 }

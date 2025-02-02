@@ -10,25 +10,41 @@ fn main() {
     let pot_3_teams = filter_teams_by_pot(&teams, Pot::Three);
     let pot_4_teams = filter_teams_by_pot(&teams, Pot::Four);
 
-    while teams.len() > 0 {
-        let rnd_idx = thread_rng().gen_range(0..teams.len());
-        let curr_team = teams[rnd_idx].clone();
-        teams.remove(rnd_idx);
-        println!("{} chosen", &curr_team.name);
-        for pot in [&pot_1_teams, &pot_2_teams, &pot_3_teams, &pot_4_teams] {
-            // TODO: remove teams from pot that already have a fixture from the curr_teams pot
-            let home_fixture = curr_team.draw_opponent(&pot, &fixtures, true);
-            if let Some(hf) = fixtures.get(&home_fixture) {
-                panic!("fixture {hf} already exists")
-            } else {
-                fixtures.insert(home_fixture);
+    for pot in [&pot_1_teams, &pot_2_teams, &pot_3_teams, &pot_4_teams] {
+        for curr_team in pot {
+            println!("{} chosen", &curr_team.name);
+            for (idx, pot) in [&pot_1_teams, &pot_2_teams, &pot_3_teams, &pot_4_teams]
+                .iter()
+                .enumerate()
+            {
+                // TODO: check if team already has a fixture for the pot so we dont attempt to draw again
+                // i.e. if a team already has a home fix for with pot 2 skip this step
+                println!("drawing for {} in pot {}", curr_team, idx + 1);
+                // TODO: remove teams from pot that already have a fixture from the curr_teams pot
+                match curr_team.draw_opponent(&pot, &fixtures, true) {
+                    Ok(fix) => {
+                        println!("away: {}", fix);
+                        fixtures.insert(fix.clone())
+                    }
+                    Err(_) => continue,
+                };
+                match curr_team.draw_opponent(&pot, &fixtures, false) {
+                    Ok(fix) => {
+                        println!("home: {}", fix);
+                        fixtures.insert(fix.clone())
+                    }
+                    Err(_) => continue,
+                };
             }
-            let away_fixture = curr_team.draw_opponent(&pot, &fixtures, false);
-            if let Some(af) = fixtures.get(&away_fixture) {
-                panic!("fixture {af} already exists")
-            } else {
-                fixtures.insert(away_fixture);
-            }
+        }
+    }
+    println!("fixture list:",);
+    for t in get_teams() {
+        println!("{}", "-".repeat(10));
+        println!("{}", t);
+        println!("{}", "-".repeat(10));
+        for f in fixtures.iter().filter(|f| f.has_team(&t)) {
+            println!("{}", f);
         }
     }
 }

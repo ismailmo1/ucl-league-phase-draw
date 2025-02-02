@@ -1,0 +1,1041 @@
+Feyenoord chosen
+drawing for Feyenoord in pot 0
+valid teams for Feyenoord
+Liverpool
+Barcelona
+Inter Milan
+Borussia Dortmund
+Bayern Munich
+Real Madrid
+Manchester City
+PSG
+RB Leipzig
+drawing for Feyenoord in pot 1
+valid teams for Feyenoord
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+AC Milan
+Atalanta
+Juventus
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for Feyenoord in pot 2
+valid teams for Feyenoord
+Lille
+Sporting CP
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Feyenoord in pot 3
+valid teams for Feyenoord
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Sparta Prague
+Sturm Graz
+Girona
+Bologna
+Slovan Bratislava
+PSG chosen
+drawing for PSG in pot 0
+valid teams for PSG
+Liverpool
+Barcelona
+Inter Milan
+Bayern Munich
+Real Madrid
+Manchester City
+RB Leipzig
+drawing for PSG in pot 1
+valid teams for PSG
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+AC Milan
+Atalanta
+Juventus
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for PSG in pot 2
+valid teams for PSG
+Sporting CP
+Feyenoord
+Celtic
+PSV
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for PSG in pot 3
+valid teams for PSG
+Aston Villa
+Stuttgart
+Sparta Prague
+Sturm Graz
+Girona
+Bologna
+Slovan Bratislava
+Inter Milan chosen
+drawing for Inter Milan in pot 0
+invalid Barcelona for home=true due to fixture: PSG(H) v Barcelona(A) for pot 1
+valid teams for Inter Milan
+Liverpool
+Borussia Dortmund
+Bayern Munich
+Real Madrid
+Manchester City
+PSG
+RB Leipzig
+drawing for Inter Milan in pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+valid teams for Inter Milan
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+Benfica
+Shakhtar Donetsk
+drawing for Inter Milan in pot 2
+invalid PSV for home=true due to fixture: PSG(H) v PSV(A) for pot 1
+valid teams for Inter Milan
+Lille
+Sporting CP
+Feyenoord
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Inter Milan in pot 3
+invalid Sturm Graz for home=true due to fixture: PSG(H) v Sturm Graz(A) for pot 1
+valid teams for Inter Milan
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Sparta Prague
+Girona
+Slovan Bratislava
+Barcelona chosen
+drawing for Barcelona in pot 0
+valid teams for Barcelona
+Liverpool
+Inter Milan
+Borussia Dortmund
+Bayern Munich
+Manchester City
+RB Leipzig
+drawing for Barcelona in pot 1
+invalid Arsenal for home=true due to fixture: Inter Milan(H) v Arsenal(A) for pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+valid teams for Barcelona
+Bayer Leverkusen
+AC Milan
+Atalanta
+Juventus
+Benfica
+Shakhtar Donetsk
+drawing for Barcelona in pot 2
+invalid PSV for home=true due to fixture: PSG(H) v PSV(A) for pot 1
+invalid Red Star Belgrade for home=true due to fixture: Inter Milan(H) v Red Star Belgrade(A) for pot 1
+valid teams for Barcelona
+Lille
+Sporting CP
+Celtic
+Dinamo Zagreb
+Red Bull Salzburg
+Young Boys
+drawing for Barcelona in pot 3
+invalid Sparta Prague for home=true due to fixture: Inter Milan(H) v Sparta Prague(A) for pot 1
+invalid Sturm Graz for home=true due to fixture: PSG(H) v Sturm Graz(A) for pot 1
+valid teams for Barcelona
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Bologna
+Slovan Bratislava
+Atalanta chosen
+drawing for Atalanta in pot 0
+valid teams for Atalanta
+Liverpool
+Borussia Dortmund
+Bayern Munich
+Real Madrid
+Manchester City
+PSG
+RB Leipzig
+drawing for Atalanta in pot 1
+valid teams for Atalanta
+Arsenal
+Bayer Leverkusen
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for Atalanta in pot 2
+valid teams for Atalanta
+Lille
+Sporting CP
+Celtic
+PSV
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Atalanta in pot 3
+valid teams for Atalanta
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Sparta Prague
+Sturm Graz
+Slovan Bratislava
+Real Madrid chosen
+drawing for Real Madrid in pot 0
+invalid Bayern Munich for home=true due to fixture: Barcelona(H) v Bayern Munich(A) for pot 1
+valid teams for Real Madrid
+Liverpool
+Borussia Dortmund
+Manchester City
+PSG
+RB Leipzig
+drawing for Real Madrid in pot 1
+invalid Arsenal for home=true due to fixture: Inter Milan(H) v Arsenal(A) for pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+valid teams for Real Madrid
+Bayer Leverkusen
+Benfica
+Shakhtar Donetsk
+drawing for Real Madrid in pot 2
+invalid Sporting CP for home=true due to fixture: Barcelona(H) v Sporting CP(A) for pot 1
+invalid PSV for home=true due to fixture: PSG(H) v PSV(A) for pot 1
+invalid Red Star Belgrade for home=true due to fixture: Inter Milan(H) v Red Star Belgrade(A) for pot 1
+valid teams for Real Madrid
+Lille
+Feyenoord
+Celtic
+Dinamo Zagreb
+Red Bull Salzburg
+Young Boys
+drawing for Real Madrid in pot 3
+invalid Sparta Prague for home=true due to fixture: Inter Milan(H) v Sparta Prague(A) for pot 1
+invalid Sturm Graz for home=true due to fixture: PSG(H) v Sturm Graz(A) for pot 1
+invalid Bologna for home=true due to fixture: Barcelona(H) v Bologna(A) for pot 1
+valid teams for Real Madrid
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Slovan Bratislava
+Stuttgart chosen
+drawing for Stuttgart in pot 0
+valid teams for Stuttgart
+Liverpool
+Barcelona
+Inter Milan
+Borussia Dortmund
+Real Madrid
+Manchester City
+PSG
+drawing for Stuttgart in pot 1
+valid teams for Stuttgart
+Arsenal
+Atlético Madrid
+AC Milan
+Juventus
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for Stuttgart in pot 2
+valid teams for Stuttgart
+Lille
+Sporting CP
+Feyenoord
+Celtic
+PSV
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Stuttgart in pot 3
+valid teams for Stuttgart
+Aston Villa
+Brest
+Monaco
+Sparta Prague
+Sturm Graz
+Girona
+Bologna
+Slovan Bratislava
+Sparta Prague chosen
+drawing for Sparta Prague in pot 0
+invalid Borussia Dortmund for home=true due to fixture: Stuttgart(H) v Borussia Dortmund(A) for pot 4
+valid teams for Sparta Prague
+Liverpool
+Barcelona
+Bayern Munich
+Real Madrid
+Manchester City
+PSG
+RB Leipzig
+drawing for Sparta Prague in pot 1
+invalid Club Brugge for home=true due to fixture: Stuttgart(H) v Club Brugge(A) for pot 4
+valid teams for Sparta Prague
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+AC Milan
+Atalanta
+Juventus
+Benfica
+Shakhtar Donetsk
+drawing for Sparta Prague in pot 2
+invalid Red Bull Salzburg for home=true due to fixture: Stuttgart(H) v Red Bull Salzburg(A) for pot 4
+valid teams for Sparta Prague
+Lille
+Sporting CP
+Celtic
+PSV
+Dinamo Zagreb
+Red Star Belgrade
+Young Boys
+drawing for Sparta Prague in pot 3
+invalid Girona for home=true due to fixture: Stuttgart(H) v Girona(A) for pot 4
+valid teams for Sparta Prague
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Sturm Graz
+Bologna
+Slovan Bratislava
+Monaco chosen
+drawing for Monaco in pot 0
+invalid Barcelona for home=true due to fixture: Sparta Prague(H) v Barcelona(A) for pot 4
+valid teams for Monaco
+Liverpool
+Inter Milan
+Bayern Munich
+Real Madrid
+Manchester City
+RB Leipzig
+drawing for Monaco in pot 1
+invalid Atlético Madrid for home=true due to fixture: Sparta Prague(H) v Atlético Madrid(A) for pot 4
+invalid Club Brugge for home=true due to fixture: Stuttgart(H) v Club Brugge(A) for pot 4
+valid teams for Monaco
+Arsenal
+Bayer Leverkusen
+AC Milan
+Atalanta
+Juventus
+Benfica
+Shakhtar Donetsk
+drawing for Monaco in pot 2
+invalid Celtic for home=true due to fixture: Sparta Prague(H) v Celtic(A) for pot 4
+invalid Red Bull Salzburg for home=true due to fixture: Stuttgart(H) v Red Bull Salzburg(A) for pot 4
+valid teams for Monaco
+Sporting CP
+Feyenoord
+PSV
+Dinamo Zagreb
+Red Star Belgrade
+Young Boys
+drawing for Monaco in pot 3
+invalid Sturm Graz for home=true due to fixture: Sparta Prague(H) v Sturm Graz(A) for pot 4
+invalid Girona for home=true due to fixture: Stuttgart(H) v Girona(A) for pot 4
+valid teams for Monaco
+Aston Villa
+Stuttgart
+Sparta Prague
+Bologna
+Slovan Bratislava
+Brest chosen
+drawing for Brest in pot 0
+invalid Barcelona for home=true due to fixture: Sparta Prague(H) v Barcelona(A) for pot 4
+invalid Manchester City for home=true due to fixture: Monaco(H) v Manchester City(A) for pot 4
+valid teams for Brest
+Liverpool
+Inter Milan
+Bayern Munich
+Real Madrid
+RB Leipzig
+drawing for Brest in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: Monaco(H) v Bayer Leverkusen(A) for pot 4
+invalid Atlético Madrid for home=true due to fixture: Sparta Prague(H) v Atlético Madrid(A) for pot 4
+invalid Club Brugge for home=true due to fixture: Stuttgart(H) v Club Brugge(A) for pot 4
+valid teams for Brest
+Arsenal
+AC Milan
+Atalanta
+Juventus
+Benfica
+Shakhtar Donetsk
+drawing for Brest in pot 2
+invalid Celtic for home=true due to fixture: Sparta Prague(H) v Celtic(A) for pot 4
+invalid Dinamo Zagreb for home=true due to fixture: Monaco(H) v Dinamo Zagreb(A) for pot 4
+invalid Red Bull Salzburg for home=true due to fixture: Stuttgart(H) v Red Bull Salzburg(A) for pot 4
+valid teams for Brest
+Sporting CP
+Feyenoord
+PSV
+Red Star Belgrade
+Young Boys
+drawing for Brest in pot 3
+invalid Sturm Graz for home=true due to fixture: Sparta Prague(H) v Sturm Graz(A) for pot 4
+invalid Girona for home=true due to fixture: Stuttgart(H) v Girona(A) for pot 4
+invalid Bologna for home=true due to fixture: Monaco(H) v Bologna(A) for pot 4
+valid teams for Brest
+Aston Villa
+Stuttgart
+Sparta Prague
+Slovan Bratislava
+Manchester City chosen
+drawing for Manchester City in pot 0
+invalid Barcelona for home=true due to fixture: PSG(H) v Barcelona(A) for pot 1
+invalid Bayern Munich for home=true due to fixture: Barcelona(H) v Bayern Munich(A) for pot 1
+valid teams for Manchester City
+Inter Milan
+Borussia Dortmund
+PSG
+RB Leipzig
+drawing for Manchester City in pot 1
+invalid Atalanta for home=true due to fixture: Barcelona(H) v Atalanta(A) for pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+invalid Shakhtar Donetsk for home=true due to fixture: Real Madrid(H) v Shakhtar Donetsk(A) for pot 1
+valid teams for Manchester City
+Bayer Leverkusen
+Atlético Madrid
+AC Milan
+Juventus
+Benfica
+drawing for Manchester City in pot 2
+invalid Sporting CP for home=true due to fixture: Barcelona(H) v Sporting CP(A) for pot 1
+invalid PSV for home=true due to fixture: PSG(H) v PSV(A) for pot 1
+invalid Dinamo Zagreb for home=true due to fixture: Real Madrid(H) v Dinamo Zagreb(A) for pot 1
+invalid Red Star Belgrade for home=true due to fixture: Inter Milan(H) v Red Star Belgrade(A) for pot 1
+valid teams for Manchester City
+Feyenoord
+Celtic
+Red Bull Salzburg
+Young Boys
+drawing for Manchester City in pot 3
+invalid Sparta Prague for home=true due to fixture: Inter Milan(H) v Sparta Prague(A) for pot 1
+invalid Sturm Graz for home=true due to fixture: PSG(H) v Sturm Graz(A) for pot 1
+invalid Bologna for home=true due to fixture: Barcelona(H) v Bologna(A) for pot 1
+valid teams for Manchester City
+Stuttgart
+Girona
+Slovan Bratislava
+Juventus chosen
+drawing for Juventus in pot 0
+invalid Real Madrid for home=true due to fixture: Atalanta(H) v Real Madrid(A) for pot 2
+valid teams for Juventus
+Liverpool
+Barcelona
+Borussia Dortmund
+Bayern Munich
+PSG
+RB Leipzig
+drawing for Juventus in pot 1
+invalid Benfica for home=true due to fixture: Atalanta(H) v Benfica(A) for pot 2
+valid teams for Juventus
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+Club Brugge
+Shakhtar Donetsk
+drawing for Juventus in pot 2
+invalid PSV for home=true due to fixture: Atalanta(H) v PSV(A) for pot 2
+valid teams for Juventus
+Lille
+Sporting CP
+Feyenoord
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Juventus in pot 3
+invalid Stuttgart for home=true due to fixture: Atalanta(H) v Stuttgart(A) for pot 2
+valid teams for Juventus
+Aston Villa
+Brest
+Monaco
+Sparta Prague
+Sturm Graz
+Girona
+Slovan Bratislava
+Liverpool chosen
+drawing for Liverpool in pot 0
+invalid Barcelona for home=true due to fixture: PSG(H) v Barcelona(A) for pot 1
+invalid Bayern Munich for home=true due to fixture: Barcelona(H) v Bayern Munich(A) for pot 1
+invalid Real Madrid for home=true due to fixture: Inter Milan(H) v Real Madrid(A) for pot 1
+invalid PSG for home=true due to fixture: Manchester City(H) v PSG(A) for pot 1
+valid teams for Liverpool
+Inter Milan
+Borussia Dortmund
+RB Leipzig
+drawing for Liverpool in pot 1
+invalid Atalanta for home=true due to fixture: Barcelona(H) v Atalanta(A) for pot 1
+invalid Juventus for home=true due to fixture: Manchester City(H) v Juventus(A) for pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+invalid Shakhtar Donetsk for home=true due to fixture: Real Madrid(H) v Shakhtar Donetsk(A) for pot 1
+valid teams for Liverpool
+Bayer Leverkusen
+Atlético Madrid
+AC Milan
+Benfica
+drawing for Liverpool in pot 2
+invalid Sporting CP for home=true due to fixture: Barcelona(H) v Sporting CP(A) for pot 1
+invalid Celtic for home=true due to fixture: Manchester City(H) v Celtic(A) for pot 1
+invalid PSV for home=true due to fixture: PSG(H) v PSV(A) for pot 1
+invalid Dinamo Zagreb for home=true due to fixture: Real Madrid(H) v Dinamo Zagreb(A) for pot 1
+invalid Red Star Belgrade for home=true due to fixture: Inter Milan(H) v Red Star Belgrade(A) for pot 1
+valid teams for Liverpool
+Lille
+Feyenoord
+Red Bull Salzburg
+Young Boys
+drawing for Liverpool in pot 3
+invalid Sparta Prague for home=true due to fixture: Inter Milan(H) v Sparta Prague(A) for pot 1
+invalid Sturm Graz for home=true due to fixture: PSG(H) v Sturm Graz(A) for pot 1
+invalid Bologna for home=true due to fixture: Barcelona(H) v Bologna(A) for pot 1
+invalid Slovan Bratislava for home=true due to fixture: Manchester City(H) v Slovan Bratislava(A) for pot 1
+valid teams for Liverpool
+Brest
+Monaco
+Stuttgart
+Girona
+Bayern Munich chosen
+drawing for Bayern Munich in pot 0
+invalid Real Madrid for home=true due to fixture: Inter Milan(H) v Real Madrid(A) for pot 1
+invalid Manchester City for home=true due to fixture: Real Madrid(H) v Manchester City(A) for pot 1
+invalid PSG for home=true due to fixture: Manchester City(H) v PSG(A) for pot 1
+valid teams for Bayern Munich
+Liverpool
+Inter Milan
+Borussia Dortmund
+drawing for Bayern Munich in pot 1
+invalid Arsenal for home=true due to fixture: Inter Milan(H) v Arsenal(A) for pot 1
+invalid Atalanta for home=true due to fixture: Barcelona(H) v Atalanta(A) for pot 1
+invalid Juventus for home=true due to fixture: Manchester City(H) v Juventus(A) for pot 1
+invalid Benfica for home=true due to fixture: Liverpool(H) v Benfica(A) for pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+invalid Shakhtar Donetsk for home=true due to fixture: Real Madrid(H) v Shakhtar Donetsk(A) for pot 1
+valid teams for Bayern Munich
+Atlético Madrid
+AC Milan
+drawing for Bayern Munich in pot 2
+invalid Sporting CP for home=true due to fixture: Barcelona(H) v Sporting CP(A) for pot 1
+invalid Feyenoord for home=true due to fixture: Liverpool(H) v Feyenoord(A) for pot 1
+invalid Celtic for home=true due to fixture: Manchester City(H) v Celtic(A) for pot 1
+invalid PSV for home=true due to fixture: PSG(H) v PSV(A) for pot 1
+invalid Dinamo Zagreb for home=true due to fixture: Real Madrid(H) v Dinamo Zagreb(A) for pot 1
+invalid Red Star Belgrade for home=true due to fixture: Inter Milan(H) v Red Star Belgrade(A) for pot 1
+valid teams for Bayern Munich
+Lille
+Red Bull Salzburg
+Young Boys
+drawing for Bayern Munich in pot 3
+invalid Aston Villa for home=true due to fixture: Real Madrid(H) v Aston Villa(A) for pot 1
+invalid Sparta Prague for home=true due to fixture: Inter Milan(H) v Sparta Prague(A) for pot 1
+invalid Sturm Graz for home=true due to fixture: PSG(H) v Sturm Graz(A) for pot 1
+invalid Bologna for home=true due to fixture: Barcelona(H) v Bologna(A) for pot 1
+invalid Slovan Bratislava for home=true due to fixture: Manchester City(H) v Slovan Bratislava(A) for pot 1
+valid teams for Bayern Munich
+Brest
+Monaco
+Dinamo Zagreb chosen
+drawing for Dinamo Zagreb in pot 0
+invalid Barcelona for home=true due to fixture: Feyenoord(H) v Barcelona(A) for pot 3
+valid teams for Dinamo Zagreb
+Liverpool
+Inter Milan
+Borussia Dortmund
+Bayern Munich
+Manchester City
+PSG
+RB Leipzig
+drawing for Dinamo Zagreb in pot 1
+invalid Atalanta for home=true due to fixture: Feyenoord(H) v Atalanta(A) for pot 3
+valid teams for Dinamo Zagreb
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+AC Milan
+Juventus
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for Dinamo Zagreb in pot 2
+invalid Sporting CP for home=true due to fixture: Feyenoord(H) v Sporting CP(A) for pot 3
+valid teams for Dinamo Zagreb
+Lille
+Feyenoord
+Celtic
+PSV
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Dinamo Zagreb in pot 3
+invalid Sparta Prague for home=true due to fixture: Feyenoord(H) v Sparta Prague(A) for pot 3
+valid teams for Dinamo Zagreb
+Aston Villa
+Stuttgart
+Sturm Graz
+Girona
+Bologna
+Slovan Bratislava
+PSV chosen
+drawing for PSV in pot 0
+invalid Barcelona for home=true due to fixture: Feyenoord(H) v Barcelona(A) for pot 3
+invalid Manchester City for home=true due to fixture: Dinamo Zagreb(H) v Manchester City(A) for pot 3
+valid teams for PSV
+Liverpool
+Inter Milan
+Borussia Dortmund
+Bayern Munich
+Real Madrid
+RB Leipzig
+drawing for PSV in pot 1
+invalid AC Milan for home=true due to fixture: Dinamo Zagreb(H) v AC Milan(A) for pot 3
+valid teams for PSV
+Arsenal
+Bayer Leverkusen
+Atlético Madrid
+Juventus
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for PSV in pot 2
+invalid Lille for home=true due to fixture: Dinamo Zagreb(H) v Lille(A) for pot 3
+invalid Sporting CP for home=true due to fixture: Feyenoord(H) v Sporting CP(A) for pot 3
+valid teams for PSV
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for PSV in pot 3
+invalid Sparta Prague for home=true due to fixture: Feyenoord(H) v Sparta Prague(A) for pot 3
+invalid Girona for home=true due to fixture: Dinamo Zagreb(H) v Girona(A) for pot 3
+valid teams for PSV
+Aston Villa
+Brest
+Monaco
+Stuttgart
+Sturm Graz
+Bologna
+Slovan Bratislava
+Slovan Bratislava chosen
+drawing for Slovan Bratislava in pot 0
+invalid Barcelona for home=true due to fixture: Sparta Prague(H) v Barcelona(A) for pot 4
+invalid Inter Milan for home=true due to fixture: Brest(H) v Inter Milan(A) for pot 4
+invalid Borussia Dortmund for home=true due to fixture: Stuttgart(H) v Borussia Dortmund(A) for pot 4
+valid teams for Slovan Bratislava
+Liverpool
+Bayern Munich
+Real Madrid
+PSG
+RB Leipzig
+drawing for Slovan Bratislava in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: Monaco(H) v Bayer Leverkusen(A) for pot 4
+invalid Atlético Madrid for home=true due to fixture: Sparta Prague(H) v Atlético Madrid(A) for pot 4
+invalid Club Brugge for home=true due to fixture: Stuttgart(H) v Club Brugge(A) for pot 4
+invalid Shakhtar Donetsk for home=true due to fixture: Brest(H) v Shakhtar Donetsk(A) for pot 4
+valid teams for Slovan Bratislava
+Arsenal
+AC Milan
+Atalanta
+Juventus
+Benfica
+drawing for Slovan Bratislava in pot 2
+invalid Celtic for home=true due to fixture: Sparta Prague(H) v Celtic(A) for pot 4
+invalid Dinamo Zagreb for home=true due to fixture: Monaco(H) v Dinamo Zagreb(A) for pot 4
+invalid Red Star Belgrade for home=true due to fixture: Brest(H) v Red Star Belgrade(A) for pot 4
+invalid Red Bull Salzburg for home=true due to fixture: Stuttgart(H) v Red Bull Salzburg(A) for pot 4
+valid teams for Slovan Bratislava
+Lille
+Sporting CP
+Feyenoord
+PSV
+Young Boys
+drawing for Slovan Bratislava in pot 3
+invalid Sturm Graz for home=true due to fixture: Sparta Prague(H) v Sturm Graz(A) for pot 4
+invalid Girona for home=true due to fixture: Stuttgart(H) v Girona(A) for pot 4
+invalid Bologna for home=true due to fixture: Monaco(H) v Bologna(A) for pot 4
+valid teams for Slovan Bratislava
+Aston Villa
+Monaco
+Stuttgart
+Sparta Prague
+AC Milan chosen
+drawing for AC Milan in pot 0
+invalid Real Madrid for home=true due to fixture: Atalanta(H) v Real Madrid(A) for pot 2
+invalid PSG for home=true due to fixture: Juventus(H) v PSG(A) for pot 2
+valid teams for AC Milan
+Liverpool
+Barcelona
+Borussia Dortmund
+Bayern Munich
+Manchester City
+RB Leipzig
+drawing for AC Milan in pot 1
+invalid Atlético Madrid for home=true due to fixture: Juventus(H) v Atlético Madrid(A) for pot 2
+invalid Benfica for home=true due to fixture: Atalanta(H) v Benfica(A) for pot 2
+valid teams for AC Milan
+Arsenal
+Bayer Leverkusen
+Club Brugge
+Shakhtar Donetsk
+drawing for AC Milan in pot 2
+invalid Feyenoord for home=true due to fixture: Juventus(H) v Feyenoord(A) for pot 2
+invalid PSV for home=true due to fixture: Atalanta(H) v PSV(A) for pot 2
+valid teams for AC Milan
+Lille
+Sporting CP
+Celtic
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for AC Milan in pot 3
+invalid Stuttgart for home=true due to fixture: Atalanta(H) v Stuttgart(A) for pot 2
+invalid Sparta Prague for home=true due to fixture: Juventus(H) v Sparta Prague(A) for pot 2
+valid teams for AC Milan
+Aston Villa
+Brest
+Monaco
+Sturm Graz
+Girona
+Slovan Bratislava
+Atlético Madrid chosen
+drawing for Atlético Madrid in pot 0
+invalid PSG for home=true due to fixture: Juventus(H) v PSG(A) for pot 2
+invalid RB Leipzig for home=true due to fixture: AC Milan(H) v RB Leipzig(A) for pot 2
+valid teams for Atlético Madrid
+Liverpool
+Inter Milan
+Borussia Dortmund
+Manchester City
+drawing for Atlético Madrid in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: AC Milan(H) v Bayer Leverkusen(A) for pot 2
+invalid Benfica for home=true due to fixture: Atalanta(H) v Benfica(A) for pot 2
+valid teams for Atlético Madrid
+Arsenal
+AC Milan
+Atalanta
+Club Brugge
+Shakhtar Donetsk
+drawing for Atlético Madrid in pot 2
+invalid Lille for home=true due to fixture: AC Milan(H) v Lille(A) for pot 2
+invalid Feyenoord for home=true due to fixture: Juventus(H) v Feyenoord(A) for pot 2
+invalid PSV for home=true due to fixture: Atalanta(H) v PSV(A) for pot 2
+valid teams for Atlético Madrid
+Sporting CP
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+Young Boys
+drawing for Atlético Madrid in pot 3
+invalid Monaco for home=true due to fixture: AC Milan(H) v Monaco(A) for pot 2
+invalid Stuttgart for home=true due to fixture: Atalanta(H) v Stuttgart(A) for pot 2
+valid teams for Atlético Madrid
+Aston Villa
+Brest
+Sturm Graz
+Slovan Bratislava
+Young Boys chosen
+drawing for Young Boys in pot 0
+invalid Barcelona for home=true due to fixture: Feyenoord(H) v Barcelona(A) for pot 3
+invalid Real Madrid for home=true due to fixture: PSV(H) v Real Madrid(A) for pot 3
+invalid Manchester City for home=true due to fixture: Dinamo Zagreb(H) v Manchester City(A) for pot 3
+valid teams for Young Boys
+Liverpool
+Inter Milan
+Borussia Dortmund
+PSG
+RB Leipzig
+drawing for Young Boys in pot 1
+invalid Arsenal for home=true due to fixture: PSV(H) v Arsenal(A) for pot 3
+invalid AC Milan for home=true due to fixture: Dinamo Zagreb(H) v AC Milan(A) for pot 3
+invalid Atalanta for home=true due to fixture: Feyenoord(H) v Atalanta(A) for pot 3
+valid teams for Young Boys
+Bayer Leverkusen
+Juventus
+Benfica
+Club Brugge
+Shakhtar Donetsk
+drawing for Young Boys in pot 2
+invalid Lille for home=true due to fixture: Dinamo Zagreb(H) v Lille(A) for pot 3
+invalid Sporting CP for home=true due to fixture: Feyenoord(H) v Sporting CP(A) for pot 3
+valid teams for Young Boys
+Feyenoord
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+drawing for Young Boys in pot 3
+invalid Monaco for home=true due to fixture: PSV(H) v Monaco(A) for pot 3
+invalid Sparta Prague for home=true due to fixture: Feyenoord(H) v Sparta Prague(A) for pot 3
+invalid Girona for home=true due to fixture: Dinamo Zagreb(H) v Girona(A) for pot 3
+valid teams for Young Boys
+Aston Villa
+Brest
+Sturm Graz
+Bologna
+Club Brugge chosen
+drawing for Club Brugge in pot 0
+invalid Real Madrid for home=true due to fixture: Atalanta(H) v Real Madrid(A) for pot 2
+invalid Manchester City for home=true due to fixture: Atlético Madrid(H) v Manchester City(A) for pot 2
+invalid RB Leipzig for home=true due to fixture: AC Milan(H) v RB Leipzig(A) for pot 2
+valid teams for Club Brugge
+Liverpool
+Barcelona
+Inter Milan
+Borussia Dortmund
+Bayern Munich
+drawing for Club Brugge in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: AC Milan(H) v Bayer Leverkusen(A) for pot 2
+invalid Atlético Madrid for home=true due to fixture: Juventus(H) v Atlético Madrid(A) for pot 2
+invalid AC Milan for home=true due to fixture: Atlético Madrid(H) v AC Milan(A) for pot 2
+valid teams for Club Brugge
+Arsenal
+Atalanta
+Juventus
+Shakhtar Donetsk
+drawing for Club Brugge in pot 2
+invalid Lille for home=true due to fixture: AC Milan(H) v Lille(A) for pot 2
+invalid Feyenoord for home=true due to fixture: Juventus(H) v Feyenoord(A) for pot 2
+invalid PSV for home=true due to fixture: Atalanta(H) v PSV(A) for pot 2
+invalid Young Boys for home=true due to fixture: Atlético Madrid(H) v Young Boys(A) for pot 2
+valid teams for Club Brugge
+Celtic
+Dinamo Zagreb
+Red Star Belgrade
+Red Bull Salzburg
+drawing for Club Brugge in pot 3
+invalid Monaco for home=true due to fixture: AC Milan(H) v Monaco(A) for pot 2
+invalid Sparta Prague for home=true due to fixture: Juventus(H) v Sparta Prague(A) for pot 2
+invalid Slovan Bratislava for home=true due to fixture: Atlético Madrid(H) v Slovan Bratislava(A) for pot 2
+valid teams for Club Brugge
+Aston Villa
+Brest
+Sturm Graz
+Girona
+Bologna
+Arsenal chosen
+drawing for Arsenal in pot 0
+invalid Real Madrid for home=true due to fixture: Atalanta(H) v Real Madrid(A) for pot 2
+invalid PSG for home=true due to fixture: Juventus(H) v PSG(A) for pot 2
+invalid RB Leipzig for home=true due to fixture: AC Milan(H) v RB Leipzig(A) for pot 2
+valid teams for Arsenal
+Barcelona
+Borussia Dortmund
+Bayern Munich
+drawing for Arsenal in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: AC Milan(H) v Bayer Leverkusen(A) for pot 2
+invalid Atlético Madrid for home=true due to fixture: Juventus(H) v Atlético Madrid(A) for pot 2
+invalid AC Milan for home=true due to fixture: Atlético Madrid(H) v AC Milan(A) for pot 2
+invalid Benfica for home=true due to fixture: Atalanta(H) v Benfica(A) for pot 2
+valid teams for Arsenal
+Atalanta
+Juventus
+Shakhtar Donetsk
+drawing for Arsenal in pot 2
+invalid Lille for home=true due to fixture: AC Milan(H) v Lille(A) for pot 2
+invalid Feyenoord for home=true due to fixture: Juventus(H) v Feyenoord(A) for pot 2
+invalid Dinamo Zagreb for home=true due to fixture: Club Brugge(H) v Dinamo Zagreb(A) for pot 2
+invalid Young Boys for home=true due to fixture: Atlético Madrid(H) v Young Boys(A) for pot 2
+valid teams for Arsenal
+Sporting CP
+Celtic
+Red Star Belgrade
+Red Bull Salzburg
+drawing for Arsenal in pot 3
+invalid Monaco for home=true due to fixture: AC Milan(H) v Monaco(A) for pot 2
+invalid Stuttgart for home=true due to fixture: Atalanta(H) v Stuttgart(A) for pot 2
+invalid Sparta Prague for home=true due to fixture: Juventus(H) v Sparta Prague(A) for pot 2
+invalid Girona for home=true due to fixture: Club Brugge(H) v Girona(A) for pot 2
+invalid Slovan Bratislava for home=true due to fixture: Atlético Madrid(H) v Slovan Bratislava(A) for pot 2
+valid teams for Arsenal
+Brest
+Sturm Graz
+Sporting CP chosen
+drawing for Sporting CP in pot 0
+invalid Inter Milan for home=true due to fixture: Young Boys(H) v Inter Milan(A) for pot 3
+invalid Real Madrid for home=true due to fixture: PSV(H) v Real Madrid(A) for pot 3
+invalid Manchester City for home=true due to fixture: Dinamo Zagreb(H) v Manchester City(A) for pot 3
+valid teams for Sporting CP
+Liverpool
+Borussia Dortmund
+Bayern Munich
+PSG
+RB Leipzig
+drawing for Sporting CP in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: Young Boys(H) v Bayer Leverkusen(A) for pot 3
+invalid AC Milan for home=true due to fixture: Dinamo Zagreb(H) v AC Milan(A) for pot 3
+invalid Atalanta for home=true due to fixture: Feyenoord(H) v Atalanta(A) for pot 3
+valid teams for Sporting CP
+Atlético Madrid
+Juventus
+Shakhtar Donetsk
+drawing for Sporting CP in pot 2
+invalid Lille for home=true due to fixture: Dinamo Zagreb(H) v Lille(A) for pot 3
+invalid Red Star Belgrade for home=true due to fixture: Young Boys(H) v Red Star Belgrade(A) for pot 3
+invalid Young Boys for home=true due to fixture: PSV(H) v Young Boys(A) for pot 3
+valid teams for Sporting CP
+Celtic
+PSV
+Dinamo Zagreb
+Red Bull Salzburg
+drawing for Sporting CP in pot 3
+invalid Brest for home=true due to fixture: Young Boys(H) v Brest(A) for pot 3
+invalid Monaco for home=true due to fixture: PSV(H) v Monaco(A) for pot 3
+invalid Sparta Prague for home=true due to fixture: Feyenoord(H) v Sparta Prague(A) for pot 3
+invalid Girona for home=true due to fixture: Dinamo Zagreb(H) v Girona(A) for pot 3
+valid teams for Sporting CP
+Stuttgart
+Sturm Graz
+Bologna
+Slovan Bratislava
+Bologna chosen
+drawing for Bologna in pot 0
+invalid Borussia Dortmund for home=true due to fixture: Stuttgart(H) v Borussia Dortmund(A) for pot 4
+invalid Real Madrid for home=true due to fixture: Slovan Bratislava(H) v Real Madrid(A) for pot 4
+invalid Manchester City for home=true due to fixture: Monaco(H) v Manchester City(A) for pot 4
+valid teams for Bologna
+Liverpool
+Bayern Munich
+PSG
+RB Leipzig
+drawing for Bologna in pot 1
+invalid Bayer Leverkusen for home=true due to fixture: Monaco(H) v Bayer Leverkusen(A) for pot 4
+invalid Atlético Madrid for home=true due to fixture: Sparta Prague(H) v Atlético Madrid(A) for pot 4
+invalid Club Brugge for home=true due to fixture: Stuttgart(H) v Club Brugge(A) for pot 4
+invalid Shakhtar Donetsk for home=true due to fixture: Brest(H) v Shakhtar Donetsk(A) for pot 4
+valid teams for Bologna
+Arsenal
+Benfica
+drawing for Bologna in pot 2
+invalid Celtic for home=true due to fixture: Sparta Prague(H) v Celtic(A) for pot 4
+invalid Dinamo Zagreb for home=true due to fixture: Monaco(H) v Dinamo Zagreb(A) for pot 4
+invalid Red Star Belgrade for home=true due to fixture: Brest(H) v Red Star Belgrade(A) for pot 4
+invalid Red Bull Salzburg for home=true due to fixture: Stuttgart(H) v Red Bull Salzburg(A) for pot 4
+invalid Young Boys for home=true due to fixture: Slovan Bratislava(H) v Young Boys(A) for pot 4
+valid teams for Bologna
+Lille
+Sporting CP
+Feyenoord
+PSV
+drawing for Bologna in pot 3
+invalid Sparta Prague for home=true due to fixture: Slovan Bratislava(H) v Sparta Prague(A) for pot 4
+invalid Sturm Graz for home=true due to fixture: Sparta Prague(H) v Sturm Graz(A) for pot 4
+invalid Girona for home=true due to fixture: Stuttgart(H) v Girona(A) for pot 4
+invalid Slovan Bratislava for home=true due to fixture: Brest(H) v Slovan Bratislava(A) for pot 4
+valid teams for Bologna
+Aston Villa
+Stuttgart
+Bayer Leverkusen chosen
+drawing for Bayer Leverkusen in pot 0
+invalid Inter Milan for home=true due to fixture: Club Brugge(H) v Inter Milan(A) for pot 2
+invalid Real Madrid for home=true due to fixture: Atalanta(H) v Real Madrid(A) for pot 2
+invalid Manchester City for home=true due to fixture: Atlético Madrid(H) v Manchester City(A) for pot 2
+invalid PSG for home=true due to fixture: Juventus(H) v PSG(A) for pot 2
+valid teams for Bayer Leverkusen
+Liverpool
+Barcelona
+Borussia Dortmund
+drawing for Bayer Leverkusen in pot 1
+invalid Arsenal for home=true due to fixture: Club Brugge(H) v Arsenal(A) for pot 2
+invalid Atlético Madrid for home=true due to fixture: Juventus(H) v Atlético Madrid(A) for pot 2
+invalid Atalanta for home=true due to fixture: Arsenal(H) v Atalanta(A) for pot 2
+invalid Benfica for home=true due to fixture: Atalanta(H) v Benfica(A) for pot 2
+valid teams for Bayer Leverkusen
+Juventus
+Club Brugge
+Shakhtar Donetsk
+drawing for Bayer Leverkusen in pot 2
+invalid Lille for home=true due to fixture: AC Milan(H) v Lille(A) for pot 2
+invalid Sporting CP for home=true due to fixture: Arsenal(H) v Sporting CP(A) for pot 2
+invalid Feyenoord for home=true due to fixture: Juventus(H) v Feyenoord(A) for pot 2
+invalid PSV for home=true due to fixture: Atalanta(H) v PSV(A) for pot 2
+invalid Dinamo Zagreb for home=true due to fixture: Club Brugge(H) v Dinamo Zagreb(A) for pot 2
+valid teams for Bayer Leverkusen
+Celtic
+Red Star Belgrade
+Red Bull Salzburg
+drawing for Bayer Leverkusen in pot 3
+invalid Brest for home=true due to fixture: Arsenal(H) v Brest(A) for pot 2
+invalid Sparta Prague for home=true due to fixture: Juventus(H) v Sparta Prague(A) for pot 2
+invalid Girona for home=true due to fixture: Club Brugge(H) v Girona(A) for pot 2
+invalid Slovan Bratislava for home=true due to fixture: Atlético Madrid(H) v Slovan Bratislava(A) for pot 2
+valid teams for Bayer Leverkusen
+Aston Villa
+Sturm Graz
+Bologna
+Shakhtar Donetsk chosen
+drawing for Shakhtar Donetsk in pot 0
+invalid Liverpool for home=true due to fixture: Bayer Leverkusen(H) v Liverpool(A) for pot 2
+invalid Inter Milan for home=true due to fixture: Club Brugge(H) v Inter Milan(A) for pot 2
+invalid Bayern Munich for home=true due to fixture: Arsenal(H) v Bayern Munich(A) for pot 2
+invalid Manchester City for home=true due to fixture: Atlético Madrid(H) v Manchester City(A) for pot 2
+invalid PSG for home=true due to fixture: Juventus(H) v PSG(A) for pot 2
+invalid RB Leipzig for home=true due to fixture: AC Milan(H) v RB Leipzig(A) for pot 2
+valid teams for Shakhtar Donetsk
+Barcelona
+Borussia Dortmund
+drawing for Shakhtar Donetsk in pot 1
+invalid Arsenal for home=true due to fixture: Club Brugge(H) v Arsenal(A) for pot 2
+invalid Bayer Leverkusen for home=true due to fixture: AC Milan(H) v Bayer Leverkusen(A) for pot 2
+invalid Atlético Madrid for home=true due to fixture: Juventus(H) v Atlético Madrid(A) for pot 2
+invalid AC Milan for home=true due to fixture: Atlético Madrid(H) v AC Milan(A) for pot 2
+invalid Atalanta for home=true due to fixture: Arsenal(H) v Atalanta(A) for pot 2
+invalid Benfica for home=true due to fixture: Atalanta(H) v Benfica(A) for pot 2
+invalid Club Brugge for home=true due to fixture: Bayer Leverkusen(H) v Club Brugge(A) for pot 2
+valid teams for Shakhtar Donetsk
+Juventus
+drawing for Shakhtar Donetsk in pot 2
+invalid Lille for home=true due to fixture: AC Milan(H) v Lille(A) for pot 2
+invalid Sporting CP for home=true due to fixture: Arsenal(H) v Sporting CP(A) for pot 2
+invalid Feyenoord for home=true due to fixture: Juventus(H) v Feyenoord(A) for pot 2
+invalid Celtic for home=true due to fixture: Bayer Leverkusen(H) v Celtic(A) for pot 2
+invalid PSV for home=true due to fixture: Atalanta(H) v PSV(A) for pot 2
+invalid Dinamo Zagreb for home=true due to fixture: Club Brugge(H) v Dinamo Zagreb(A) for pot 2
+invalid Young Boys for home=true due to fixture: Atlético Madrid(H) v Young Boys(A) for pot 2
+valid teams for Shakhtar Donetsk
+Red Star Belgrade
+Red Bull Salzburg
+drawing for Shakhtar Donetsk in pot 3
+invalid Monaco for home=true due to fixture: AC Milan(H) v Monaco(A) for pot 2
+invalid Stuttgart for home=true due to fixture: Atalanta(H) v Stuttgart(A) for pot 2
+invalid Sparta Prague for home=true due to fixture: Juventus(H) v Sparta Prague(A) for pot 2
+invalid Girona for home=true due to fixture: Club Brugge(H) v Girona(A) for pot 2
+invalid Bologna for home=true due to fixture: Bayer Leverkusen(H) v Bologna(A) for pot 2
+invalid Slovan Bratislava for home=true due to fixture: Atlético Madrid(H) v Slovan Bratislava(A) for pot 2
+valid teams for Shakhtar Donetsk
+Aston Villa
+Sturm Graz
+RB Leipzig chosen
+drawing for RB Leipzig in pot 0
+invalid Barcelona for home=true due to fixture: PSG(H) v Barcelona(A) for pot 1
+invalid Real Madrid for home=true due to fixture: Inter Milan(H) v Real Madrid(A) for pot 1
+invalid Manchester City for home=true due to fixture: Real Madrid(H) v Manchester City(A) for pot 1
+invalid PSG for home=true due to fixture: Manchester City(H) v PSG(A) for pot 1
+valid teams for RB Leipzig
+Borussia Dortmund
+drawing for RB Leipzig in pot 1
+invalid Arsenal for home=true due to fixture: Inter Milan(H) v Arsenal(A) for pot 1
+invalid Atlético Madrid for home=true due to fixture: Bayern Munich(H) v Atlético Madrid(A) for pot 1
+invalid Atalanta for home=true due to fixture: Barcelona(H) v Atalanta(A) for pot 1
+invalid Juventus for home=true due to fixture: Manchester City(H) v Juventus(A) for pot 1
+invalid Benfica for home=true due to fixture: Liverpool(H) v Benfica(A) for pot 1
+invalid Club Brugge for home=true due to fixture: PSG(H) v Club Brugge(A) for pot 1
+invalid Shakhtar Donetsk for home=true due to fixture: Real Madrid(H) v Shakhtar Donetsk(A) for pot 1
+valid teams for RB Leipzig
